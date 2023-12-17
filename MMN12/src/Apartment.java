@@ -23,7 +23,6 @@ public class Apartment
     final int MAX_DAYS_FOR_RENTAL_REPLACEMENT = 90;
 
     // Constructors
-
     /**
      * creates an apartment object with the given parameters.
      * @param noOfRooms the number of rooms of the apartment.
@@ -31,11 +30,11 @@ public class Apartment
      * @param price the price of the rental.
      * @param tenant the tenant of the apartment.
      * @param rentalStartDay the start day of the rental.
-     * @param rentalStartMonth
-     * @param rentalStartYear
-     * @param rentalEndDay
-     * @param rentalEndMonth
-     * @param rentalEndYear
+     * @param rentalStartMonth the start month of the rental.
+     * @param rentalStartYear the start year of the rental.
+     * @param rentalEndDay the end day of the rental.
+     * @param rentalEndMonth the end month of the rental.
+     * @param rentalEndYear the end year of the rental.
      */
     public Apartment(
             int noOfRooms,
@@ -77,6 +76,10 @@ public class Apartment
         }
     }
 
+    /**
+     * creates an apartment object from a given apartment object
+     * @param other the apartment object to copy from
+     */
     public Apartment(Apartment other)
     {
         _noOfRooms = other._noOfRooms;
