@@ -1,4 +1,4 @@
-/**
+  /**
  * This class represents an Apartment object
  *
  * @author Shaked Kodman Kolran
