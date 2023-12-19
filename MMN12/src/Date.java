@@ -1,3 +1,9 @@
+/**
+ * This class represent a date object.
+ *
+ * @author Shaked Kodman Kolran
+ * @version 18-12-23
+ */
 public class Date
 {
     int _day;
@@ -8,19 +14,41 @@ public class Date
     final int MIN_MONTH = 1;
     final int MAX_MONTH = 12;
     final int MIN_DAY = 1;
-    final int MAX_DAY_IN_31_DAY_MONTH = 31;
-    final int MAX_DAY_IN_30_DAY_MONTH = 30;
-    final int MAX_DAY_IN_SEPTEMBER_NORM = 28;
-    final int MAX_DAY_IN_SEPTEMBER_LEAP = 29;
+    final int DEFAULT_DAY = 1;
+    final int DEFAULT_MONTH = 1;
+    final int DEFAULT_YEAR = 2000;
+    final int LAST_DAY_IN_31_DAY_MONTH = 31;
+    final int LAST_DAY_IN_30_DAY_MONTH = 30;
+    final int LAST_DAY_IN_SEPTEMBER_NORM = 28;
+    final int LAST_DAY_IN_SEPTEMBER_LEAP = 29;
+    final int JANUARY = 1;
+    final int FEBRUARY = 2;
+    final int MARCH = 3;
+    final int APRIL = 4;
+    final int MAY = 5;
+    final int JUNE = 6;
+    final int JULY = 7;
+    final int AUGUST = 8;
+    final int SEPTEMBER = 9;
+    final int OCTOBER = 10;
+    final int NOVEMBER = 11;
+    final int DECEMBER = 12;
 
     // constructors
+
+    /**
+     * constructs a date object with the given parameters.
+     * @param day the day of the date.
+     * @param month the month of the date.
+     * @param year the year of the date.
+     */
     public Date(int day, int month, int year)
     {
         if (!isDateValid(day, month, year))
         {
-            _year = 2000;
-            _month = 1;
-            _day = 1;
+            _year = DEFAULT_YEAR;
+            _month = DEFAULT_MONTH;
+            _day = DEFAULT_DAY;
         }
         else
         {
@@ -30,6 +58,10 @@ public class Date
         }
     }
 
+    /**
+     * constructs a date object from another date object
+     * @param other the date object to copy from
+     */
     public Date(Date other)
     {
         _year = other._year;
@@ -45,26 +77,26 @@ public class Date
 
         switch (month)
         {
-            case 1:
-            case 3:
-            case 5:
-            case 7:
-            case 8:
-            case 10:
-            case 12:
-                return !(day < MIN_DAY || day > MAX_DAY_IN_31_DAY_MONTH);
+            case JANUARY:
+            case MARCH:
+            case MAY:
+            case JULY:
+            case AUGUST:
+            case OCTOBER:
+            case DECEMBER:
+                return !(day < MIN_DAY || day > LAST_DAY_IN_31_DAY_MONTH);
 
-            case 4:
-            case 6:
-            case 9:
-            case 11:
-                return !(day < MIN_DAY || day > MAX_DAY_IN_30_DAY_MONTH);
+            case APRIL:
+            case JUNE:
+            case SEPTEMBER:
+            case NOVEMBER:
+                return !(day < MIN_DAY || day > LAST_DAY_IN_30_DAY_MONTH);
 
-            case 2:
+            case FEBRUARY:
                 if (isLeapYear(year))
-                    return !(day < MIN_DAY || day > MAX_DAY_IN_SEPTEMBER_LEAP);
+                    return !(day < MIN_DAY || day > LAST_DAY_IN_SEPTEMBER_LEAP);
                 else
-                    return !(day < MIN_DAY || day > MAX_DAY_IN_SEPTEMBER_NORM);
+                    return !(day < MIN_DAY || day > LAST_DAY_IN_SEPTEMBER_NORM);
         }
 
         return false;
@@ -85,6 +117,22 @@ public class Date
     }
 
     // public methods
+
+    /**
+     * checks if this date object is equal to another date object
+     * @param other the date object to compare to
+     * @return true if the objects are equal, false if not
+     */
+    public boolean equals(Date other)
+    {
+        return (_year == other._year) && (_month == other._month) && (_day == other._day);
+    }
+
+    /**
+     * checks if this date is before another date.
+     * @param other the date to compare to
+     * @return true if this date is before, false if otherwise
+     */
     public boolean before(Date other)
     {
         if (_day < other._day)
@@ -103,48 +151,136 @@ public class Date
         }
     }
 
+    /**
+     * checks if this date is after another date.
+     * @param other the date to compare to
+     * @return true if this date is after, false if otherwise
+     */
     public boolean after(Date other)
     {
         return other.before(this);
     }
 
-    public boolean equals(Date other)
+    /**
+     * calculate the difference between this date and another date
+     * @param other the date to calculate the difference with
+     * @return the difference in days
+     */
+    public int difference(Date other)
     {
-        return (_year == other._year) && (_month == other._month) && (_day == other._day);
+        int dateInDays = calculateDate(_day, _month, _year);
+        int otherDateInDays = calculateDate(other._day, other._month, other._year);
+
+        return Math.abs(dateInDays - otherDateInDays);
+    }
+
+    /**
+     * adds a number of years to this date
+     * @param num the number of years to add
+     * @return a new date witch is like this date but with the years added
+     */
+    public Date addYearsToDate(int num)
+    {
+        Date result = new Date(this);
+
+        if (isLeapYear(_year) && (_month == FEBRUARY) && (_day == LAST_DAY_IN_SEPTEMBER_LEAP))
+        {
+            if (isLeapYear(_year + num))
+            {
+                result._year += num;
+            }
+            else
+            {
+                result._year += num;
+                result._day = LAST_DAY_IN_SEPTEMBER_NORM;
+            }
+
+        }
+        else if (isLeapYear(_year + num) && (_month == FEBRUARY) && (_day == LAST_DAY_IN_SEPTEMBER_NORM))
+        {
+            result._year += num;
+            result._day = LAST_DAY_IN_SEPTEMBER_LEAP;
+        }
+        else
+        {
+            result._year += num;
+        }
+
+        return result;
     }
 
     // overrides
 
+    /**
+     * create a string representation of the Date object
+     * @return a string representation of this Date object
+     */
+    public String toString()
+    {
+        if (_day < 10 && _month < 10)
+            return "0" + _day + "/" + "0" + _month + "/" + _year;
+        else if (_day < 10)
+            return "0" + _day + "/" + _month + "/" + _year;
+        else if (_month < 10)
+            return _day + "/" + "0" + _month + "/" + _year;
+
+        return _day + "/" + _month + "/" + _year;
+    }
 
     // getters
+
+    /**
+     * Gets the date's day
+     * @return the day of the date
+     */
     public int getDay()
     {
         return _day;
     }
 
+    /**
+     * Gets the date's month
+     * @return the month of the date
+     */
     public int getMonth()
     {
         return _month;
     }
 
+    /**
+     * Gets the date's year
+     * @return the year of the date
+     */
     public int getYear()
     {
         return _year;
     }
 
     // setters
+    /**
+     * Sets the day of this date
+     * @param dayToSet the day to set
+     */
     public void setDay(int dayToSet)
     {
         if (isDateValid(dayToSet, _month, _year))
             _day = dayToSet;
     }
 
+    /**
+     * Sets the month of this date
+     * @param monthToSet the month to set
+     */
     public void setMonth(int monthToSet)
     {
         if (isDateValid(_day, monthToSet, _year))
             _month = monthToSet;
     }
 
+    /**
+     * Sets the year of this date
+     * @param yearToSet the year to set
+     */
     public void setYear(int yearToSet)
     {
         if (isDateValid(_day, _month, yearToSet))
