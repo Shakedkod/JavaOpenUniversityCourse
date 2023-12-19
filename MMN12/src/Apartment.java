@@ -91,6 +91,11 @@ public class Apartment
     }
 
     // Public methods
+    /**
+     * checks if this apartment object is equal to another apartment object
+     * @param other the apartment object to compare to
+     * @return true if the objects are equal, false if not
+     */
     public boolean equals(Apartment other)
     {
         return _noOfRooms == other._noOfRooms
@@ -101,12 +106,21 @@ public class Apartment
                 && _rentalEndDate.equals(other._rentalEndDate);
     }
 
+    /**
+     * extend the rental time by number of years given
+     * @param years the number of years to add
+     */
     public void extendRentalPeriod(int years)
     {
         if (years >= MIN_YEARS_FOR_EXTENSION)
             setRentalEndDate(_rentalEndDate.addYearsToDate(years));
     }
 
+    /**
+     * calculates the number of days left for the rental
+     * @param d the date to check from
+     * @return the number of days left for the rental from the date d.
+     */
     public int daysLeft(Date d)
     {
         if (d.after(_rentalEndDate))
@@ -115,6 +129,13 @@ public class Apartment
         return d.difference(_rentalEndDate);
     }
 
+    /**
+     * checks if the current tenant can replace himself, if he can, replaces the tenant, the price and the end date
+     * @param startDate the new start date of the new rental
+     * @param p the new person to be the tenant
+     * @param price the new price of the new rental
+     * @return true if the tenant change and false if did not
+     */
     public boolean changeTenant(Date startDate, Person p, double price)
     {
         if ((p.compareTo(_tenant) == -1)
@@ -136,6 +157,10 @@ public class Apartment
     }
 
     // Overrides
+    /**
+     * creates a string representation of an apartment
+     * @return a string representation of this apartment
+     */
     public String toString()
     {
         return "Number of rooms: " + _noOfRooms +
@@ -147,66 +172,114 @@ public class Apartment
     }
 
     // Getters
+    /**
+     * Gets the apartment's number of rooms
+     * @return the number of rooms of the apartment
+     */
     int getNoOfRooms()
     {
         return _noOfRooms;
     }
 
+    /**
+     * Gets the apartment's area
+     * @return the area of the apartment
+     */
     double getArea()
     {
         return _area;
     }
 
+    /**
+     * Gets the apartment's price
+     * @return the price of the apartment
+     */
     double getPrice()
     {
         return _price;
     }
 
+    /**
+     * Gets the apartment's tenant
+     * @return the tenant of the apartment
+     */
     Person getTenant()
     {
         return new Person(_tenant);
     }
 
+    /**
+     * Gets the rental's start date
+     * @return the start date of the rental
+     */
     Date getRentalStartDate()
     {
         return new Date(_rentalStartDate);
     }
 
+    /**
+     * Gets the rental's end date
+     * @return the end date of the rental
+     */
     Date getRentalEndDate()
     {
         return new Date(_rentalEndDate);
     }
 
     // Setters
+    /**
+     * Sets the number of rooms of this apartment
+     * @param num the number of rooms to set
+     */
     void setNoOfRooms(int num)
     {
         if (num >= MIN_NO_OF_ROOMS)
             _noOfRooms = num;
     }
 
+    /**
+     * Sets the area of this apartment
+     * @param area the area to set
+     */
     void setArea(double area)
     {
         if (area > BELOW_MIN_AREA)
             _area = area;
     }
 
+    /**
+     * Sets the price of this apartment
+     * @param price the price to set
+     */
     void setPrice(double price)
     {
         if (price > BELOW_MIN_PRICE)
             _price = price;
     }
 
+    /**
+     * Sets the tenant of this apartment
+     * @param p the person to set
+     */
     void setTenant(Person p)
     {
         _tenant = new Person(p);
     }
 
+    /**
+     * Sets the start date of the rental
+     * @param d the date to set
+     */
     void setRentalStartDate(Date d)
     {
         if (d.before(_rentalEndDate))
             _rentalStartDate = new Date(d);
     }
 
+    /**
+     * Sets the end date of the rental
+     * @param d the date to set
+     */
     void setRentalEndDate(Date d)
     {
         if (d.after(_rentalStartDate))

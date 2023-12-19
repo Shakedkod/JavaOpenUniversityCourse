@@ -24,7 +24,7 @@ public class Person
      */
     public Person(String name, int day, int month, int year, String id)
     {
-        if (name.equals(""))
+        if (name.isEmpty())
             _name = DEFAULT_NAME;
         else
             _name = name;
@@ -56,13 +56,9 @@ public class Person
      */
     public boolean equals(Person other)
     {
-        if (_name.equals(other._name)
+        return _name.equals(other._name)
                 && _id.equals(other._id)
-                && _dateOfBirth.equals(other._dateOfBirth)
-        )
-            return true;
-
-        return false;
+                && _dateOfBirth.equals(other._dateOfBirth);
     }
 
     /**
