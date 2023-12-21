@@ -1,6 +1,7 @@
 /**
  * This class represents a Person object
  *
+ * ID: 216590125
  * @author Shaked Kodman Kolran
  * @version 21-12-2023
  */
@@ -85,7 +86,7 @@ public class Person
     {
         return "Name: " + _name
                 + "\nID: " + _id
-                + "\nDate of birth: " + _dateOfBirth;
+                + "\nDate of birth: " + _dateOfBirth.toString();
     }
 
     // Getters

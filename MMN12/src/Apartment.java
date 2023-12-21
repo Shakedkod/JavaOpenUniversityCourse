@@ -1,6 +1,7 @@
   /**
  * This class represents an Apartment object
  *
+ * ID: 216590125
  * @author Shaked Kodman Kolran
  * @version 21-12-2023
  */
@@ -167,8 +168,8 @@ public class Apartment
                 "\nArea: " + _area +
                 "\nPrice: " + _price + " NIS" +
                 "\nTenant name: " + _tenant.getName() +
-                "\nRental start date: " + _rentalStartDate +
-                "\nRental end date: " + _rentalEndDate;
+                "\nRental start date: " + _rentalStartDate.toString() +
+                "\nRental end date: " + _rentalEndDate.toString();
     }
 
     // Getters
