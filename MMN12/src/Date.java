@@ -107,6 +107,14 @@ public class Date
         return (y % 4 == 0 && y % 100 != 0) || (y % 400 == 0);
     }
 
+    private boolean isLastDayOfSeptember()
+    {
+        if (isLeapYear(_year))
+            return (_month == FEBRUARY) && (_day == LAST_DAY_IN_SEPTEMBER_LEAP);
+        else
+            return (_month == FEBRUARY) && (_day == LAST_DAY_IN_SEPTEMBER_NORM);
+    }
+
     private int calculateDate(int day, int month, int year)
     {
         if (month < 3) {
@@ -183,7 +191,8 @@ public class Date
     {
         Date result = new Date(this);
 
-        if (isLeapYear(_year) && (_month == FEBRUARY) && (_day == LAST_DAY_IN_SEPTEMBER_LEAP))
+        // if this year is a leap year
+        if (isLeapYear(_year) && isLastDayOfSeptember())
         {
             if (isLeapYear(_year + num))
             {
@@ -196,11 +205,13 @@ public class Date
             }
 
         }
-        else if (isLeapYear(_year + num) && (_month == FEBRUARY) && (_day == LAST_DAY_IN_SEPTEMBER_NORM))
+        // if the next year is a leap year
+        else if (isLeapYear(_year + num) && isLastDayOfSeptember())
         {
             result._year += num;
             result._day = LAST_DAY_IN_SEPTEMBER_LEAP;
         }
+        // if none of the years are leap years
         else
         {
             result._year += num;
