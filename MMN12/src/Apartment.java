@@ -6,12 +6,12 @@
  */
 public class Apartment
 {
-    int _noOfRooms;
-    double _area;
-    double _price;
-    Person _tenant;
-    Date _rentalStartDate;
-    Date _rentalEndDate;
+    private int _noOfRooms;
+    private double _area;
+    private double _price;
+    private Person _tenant;
+    private Date _rentalStartDate;
+    private Date _rentalEndDate;
 
     private static final int MIN_NO_OF_ROOMS = 1;
     private static final int DEFAULT_NO_OF_ROOMS = 3;

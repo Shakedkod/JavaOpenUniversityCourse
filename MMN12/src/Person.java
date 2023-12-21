@@ -6,9 +6,9 @@
  */
 public class Person
 {
-    String _name;
-    String _id;
-    Date _dateOfBirth;
+    private String _name;
+    private String _id;
+    private Date _dateOfBirth;
 
     private static final String DEFAULT_NAME = "Someone";
     private static final String DEFAULT_ID = "000000000";
@@ -123,7 +123,7 @@ public class Person
      */
     void setName(String name)
     {
-        if (!name.equals(""))
+        if (!name.isEmpty())
             _name = name;
     }
 
