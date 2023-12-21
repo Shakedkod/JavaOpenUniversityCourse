@@ -13,14 +13,14 @@ public class Apartment
     Date _rentalStartDate;
     Date _rentalEndDate;
 
-    final int MIN_NO_OF_ROOMS = 1;
-    final int DEFAULT_NO_OF_ROOMS = 3;
-    final double BELOW_MIN_AREA = 0;
-    final double DEFAULT_AREA = 80;
-    final double BELOW_MIN_PRICE = 0;
-    final double DEFAULT_PRICE = 5000;
-    final int MIN_YEARS_FOR_EXTENSION = 1;
-    final int MAX_DAYS_FOR_RENTAL_REPLACEMENT = 90;
+    private static final int MIN_NO_OF_ROOMS = 1;
+    private static final int DEFAULT_NO_OF_ROOMS = 3;
+    private static final double BELOW_MIN_AREA = 0;
+    private static final double DEFAULT_AREA = 80;
+    private static final double BELOW_MIN_PRICE = 0;
+    private static final double DEFAULT_PRICE = 5000;
+    private static final int MIN_YEARS_FOR_EXTENSION = 1;
+    private static final int MAX_DAYS_FOR_RENTAL_REPLACEMENT = 90;
 
     // Constructors
     /**

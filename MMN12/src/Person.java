@@ -10,8 +10,8 @@ public class Person
     String _id;
     Date _dateOfBirth;
 
-    final String DEFAULT_NAME = "Someone";
-    final String DEFAULT_ID = "000000000";
+    private static final String DEFAULT_NAME = "Someone";
+    private static final String DEFAULT_ID = "000000000";
 
     // Constructors
     /**

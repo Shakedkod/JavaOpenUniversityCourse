@@ -6,33 +6,33 @@
  */
 public class Date
 {
-    int _day;
-    int _month;
-    int _year;
+    private int _day;
+    private int _month;
+    private int _year;
 
-    final int MIN_YEAR = 1000;
-    final int MIN_MONTH = 1;
-    final int MAX_MONTH = 12;
-    final int MIN_DAY = 1;
-    final int DEFAULT_DAY = 1;
-    final int DEFAULT_MONTH = 1;
-    final int DEFAULT_YEAR = 2000;
-    final int LAST_DAY_IN_31_DAY_MONTH = 31;
-    final int LAST_DAY_IN_30_DAY_MONTH = 30;
-    final int LAST_DAY_IN_SEPTEMBER_NORM = 28;
-    final int LAST_DAY_IN_SEPTEMBER_LEAP = 29;
-    final int JANUARY = 1;
-    final int FEBRUARY = 2;
-    final int MARCH = 3;
-    final int APRIL = 4;
-    final int MAY = 5;
-    final int JUNE = 6;
-    final int JULY = 7;
-    final int AUGUST = 8;
-    final int SEPTEMBER = 9;
-    final int OCTOBER = 10;
-    final int NOVEMBER = 11;
-    final int DECEMBER = 12;
+    private static final int MIN_YEAR = 1000;
+    private static final int MIN_MONTH = 1;
+    private static final int MAX_MONTH = 12;
+    private static final int MIN_DAY = 1;
+    private static final int DEFAULT_DAY = 1;
+    private static final int DEFAULT_MONTH = 1;
+    private static final int DEFAULT_YEAR = 2000;
+    private static final int LAST_DAY_IN_31_DAY_MONTH = 31;
+    private static final int LAST_DAY_IN_30_DAY_MONTH = 30;
+    private static final int LAST_DAY_IN_SEPTEMBER_NORM = 28;
+    private static final int LAST_DAY_IN_SEPTEMBER_LEAP = 29;
+    private static final int JANUARY = 1;
+    private static final int FEBRUARY = 2;
+    private static final int MARCH = 3;
+    private static final int APRIL = 4;
+    private static final int MAY = 5;
+    private static final int JUNE = 6;
+    private static final int JULY = 7;
+    private static final int AUGUST = 8;
+    private static final int SEPTEMBER = 9;
+    private static final int OCTOBER = 10;
+    private static final int NOVEMBER = 11;
+    private static final int DECEMBER = 12;
 
     // constructors
 
