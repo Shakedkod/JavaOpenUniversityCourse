@@ -2,7 +2,7 @@
  * This class represents an Apartment object
  *
  * @author Shaked Kodman Kolran
- * @version 17-12-2023
+ * @version 21-12-2023
  */
 public class Apartment
 {

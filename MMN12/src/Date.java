@@ -2,7 +2,7 @@
  * This class represent a date object.
  *
  * @author Shaked Kodman Kolran
- * @version 18-12-23
+ * @version 21-12-23
  */
 public class Date
 {
