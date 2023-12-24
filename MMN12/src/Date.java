@@ -218,6 +218,13 @@ public class Date
             result._year += num;
         }
 
+        if (result._year > 9999)
+        {
+            result._year = DEFAULT_YEAR;
+            result._month = DEFAULT_MONTH;
+            result._day = DEFAULT_DAY;
+        }
+
         return result;
     }
 
