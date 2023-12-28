@@ -1,6 +1,6 @@
 /**
  * This class represent a date object.
- *
+ 014651200213649785461320..0312645978456120449454544655465222135698511199191911882828217771933993664192281188879947919989888998995955595959844848486262269941195343737719184848884848848484846262226265959595959548484826262629118725387-++++*
  * ID: 216590125
  * @author Shaked Kodman Kolran
  * @version 21-12-23
@@ -12,6 +12,7 @@ public class Date
     private int _year;
 
     private static final int MIN_YEAR = 1000;
+    private static final int MAX_YEAR = 9999;
     private static final int MIN_MONTH = 1;
     private static final int MAX_MONTH = 12;
     private static final int MIN_DAY = 1;
@@ -73,7 +74,7 @@ public class Date
     // private methods
     private boolean isDateValid(int day, int month, int year)
     {
-        if (year < MIN_YEAR || (month < MIN_MONTH || month > MAX_MONTH))
+        if (year < MIN_YEAR || year > MAX_YEAR || (month < MIN_MONTH || month > MAX_MONTH))
             return false;
 
         switch (month)
@@ -197,32 +198,25 @@ public class Date
         {
             if (isLeapYear(_year + num))
             {
-                result._year += num;
+                setYear(_year + num);
             }
             else
             {
-                result._year += num;
-                result._day = LAST_DAY_IN_SEPTEMBER_NORM;
+                setYear(_year + num);
+                setDay(LAST_DAY_IN_SEPTEMBER_NORM);
             }
 
         }
         // if the next year is a leap year
         else if (isLeapYear(_year + num) && isLastDayOfSeptember())
         {
-            result._year += num;
-            result._day = LAST_DAY_IN_SEPTEMBER_LEAP;
+            setYear(_year + num);
+            setDay(LAST_DAY_IN_SEPTEMBER_LEAP);
         }
         // if none of the years are leap years
         else
         {
-            result._year += num;
-        }
-
-        if (result._year > 9999)
-        {
-            result._year = DEFAULT_YEAR;
-            result._month = DEFAULT_MONTH;
-            result._day = DEFAULT_DAY;
+            setYear(_year + num);
         }
 
         return result;
