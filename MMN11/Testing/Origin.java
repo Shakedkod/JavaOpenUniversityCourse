@@ -1,8 +1,6 @@
-/**
- * The Origin class gets three points in the plane and prints which one of them is closest to the origin
- * 
- * @version 8-12-2023
- */
+// The Origin class gets three points in the plane and prints which one of them is closest to the origin
+// Author: Shaked Kodman Kolran.
+// ID: 216590125.
 import java.util.Scanner;
 
 public class Origin

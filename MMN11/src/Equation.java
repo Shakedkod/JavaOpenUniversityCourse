@@ -1,8 +1,6 @@
-/**
- * The Equation class gets three coefficients of a polynomial equation and prints its roots
- *
- * @version 1
- */
+// The Equation class gets three coefficients of a polynomial equation and prints its roots
+// Author: Shaked Kodman Kolran.
+// ID: 216590125.
 import java.util.Scanner;
 
 public class Equation
@@ -13,9 +11,9 @@ public class Equation
         // Prompt user for coefficients of the polynomial equation
         Scanner scan = new Scanner (System.in);
         System.out.println("Enter 3 coefficients of the polynomial equation:");
-        int a = scan.nextInt();
-        int b = scan.nextInt();
-        int c = scan.nextInt();
+        double a = scan.nextDouble();
+        double b = scan.nextDouble();
+        double c = scan.nextDouble();
 
         // Calculate delta and print the solutions
         double delta = Math.pow(b, 2) - (4 * a * c);
@@ -25,7 +23,7 @@ public class Equation
             System.out.println("There is no solution.");
         else if (delta == 0)
         {
-            double x = (float)(-b) / (2 * a);
+            double x = (-b) / (2 * a);
             System.out.println("There is 1 solution. X1 = " + x + ".");
         }
         else
