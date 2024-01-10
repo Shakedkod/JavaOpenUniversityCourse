@@ -70,10 +70,10 @@ public class Apartment
         _rentalStartDate = new Date(rentalStartDay, rentalStartMonth, rentalStartYear);
         _rentalEndDate = new Date(rentalEndDay, rentalEndMonth, rentalEndYear);
 
-        if (!_rentalStartDate.after(_rentalEndDate))
+        if (!_rentalEndDate.after(_rentalStartDate))
         {
             _rentalEndDate = new Date(_rentalStartDate);
-            _rentalEndDate.addYearsToDate(1);
+            _rentalEndDate = _rentalEndDate.addYearsToDate(1);
         }
     }
 

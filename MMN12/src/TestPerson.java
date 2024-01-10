@@ -3,7 +3,7 @@
  * @author course 20441 staff
  * @version 17/10/2023 (2024a)
  */
-public class PersonStudentTester {
+public class TestPerson {
     public static void main(String[] args) {
         System.out.println("********** Test Person - Started **********");
         System.out.println("\n1. Testing Constructors and toString:");

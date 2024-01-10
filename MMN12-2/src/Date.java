@@ -1,6 +1,6 @@
 /**
  * This class represent a date object.
- 014651200213649785461320..0312645978456120449454544655465222135698511199191911882828217771933993664192281188879947919989888998995955595959844848486262269941195343737719184848884848848484846262226265959595959548484826262629118725387-++++*
+ *
  * ID: 216590125
  * @author Shaked Kodman Kolran
  * @version 21-12-23
@@ -198,25 +198,25 @@ public class Date
         {
             if (isLeapYear(_year + num))
             {
-                setYear(_year + num);
+                result.setYear(_year + num);
             }
             else
             {
-                setYear(_year + num);
-                setDay(LAST_DAY_IN_SEPTEMBER_NORM);
+                result.setYear(_year + num);
+                result.setDay(LAST_DAY_IN_SEPTEMBER_NORM);
             }
 
         }
         // if the next year is a leap year
         else if (isLeapYear(_year + num) && isLastDayOfSeptember())
         {
-            setYear(_year + num);
-            setDay(LAST_DAY_IN_SEPTEMBER_LEAP);
+            result.setYear(_year + num);
+            result.setDay(LAST_DAY_IN_SEPTEMBER_LEAP);
         }
         // if none of the years are leap years
         else
         {
-            setYear(_year + num);
+            result.setYear(_year + num);
         }
 
         return result;

@@ -2,7 +2,7 @@
  * @author staff 20441
  * @version 2024a 17/10/2023
  */
-public class ApartmentStudentTester {
+public class TestApartment {
     public static void main(String[] args) {
         System.out.println("********** Test Apartment - Started **********");
         System.out.println("\n1. Testing Constructors and toString:");
