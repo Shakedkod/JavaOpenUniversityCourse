@@ -194,8 +194,7 @@ public class Tester
 
         counter += tester.endTest();
 
-        System.out.println("========== FINAL REPORT ==========");
-        System.out.println(counter + " tests committed.\n" + successes + " from them passed.\n" + (counter - successes) + " from them failed.");
+        tester.finalReport(counter, successes);
     }
 }
 

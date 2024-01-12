@@ -25,7 +25,7 @@ public class Person
      */
     public Person(String name, int day, int month, int year, String id)
     {
-        if (name.isEmpty())
+        if (name == null || name.isEmpty())
             _name = DEFAULT_NAME;
         else
             _name = name;
@@ -124,7 +124,7 @@ public class Person
      */
     void setName(String name)
     {
-        if (!name.isEmpty())
+        if (name != null && !name.isEmpty())
             _name = name;
     }
 

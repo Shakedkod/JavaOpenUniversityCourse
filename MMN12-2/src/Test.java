@@ -1,26 +1,20 @@
 import java.util.Arrays;
 
-import org.fusesource.jansi.Ansi;
-import org.fusesource.jansi.Ansi.Color;
-import org.fusesource.jansi.AnsiConsole;
-
 public class Test
 {
     private int _testCounter;
     private String _testName;
-    private static final Ansi ansi = Ansi.ansi();
     private final int DEFAULT_COUNTER = 0;
-    private final String FAIL_COLOR = "";
-    private final String MAIN_COLOR = "";
-    private final String TITLE_COLOR = "";
-    private final String SUCCESS_COLOR = "";
+    public static final String FAIL_COLOR = "\u001B[31m";
+    public static final String RESET_COLOR = "\u001B[0m";
+    public static final String TITLE_COLOR = "\u001B[43m";
+    public static final String SUCCESS_COLOR = "\u001B[32m";
 
     public Test(String testName)
     {
-        AnsiConsole.systemInstall();
         _testName = testName;
         _testCounter = DEFAULT_COUNTER;
-        System.out.println("========== Testing " + testName + " ==========");
+        System.out.println(TITLE_COLOR + "========== Testing " + testName + " ==========" + RESET_COLOR);
     }
 
     public boolean check(int expected, int actual)
@@ -28,11 +22,11 @@ public class Test
         _testCounter++;
         if (expected == actual)
         {
-            System.out.println("Test #" + _testCounter + " -> " + SUCCESS_COLOR + "SUCCEEDED" + MAIN_COLOR);
+            System.out.println("Test #" + _testCounter + " -> " + SUCCESS_COLOR + "SUCCEEDED" + RESET_COLOR);
             return true;
         }
 
-        System.out.println("Test #" + _testCounter + " -> " + FAIL_COLOR + "FAILED" + MAIN_COLOR + " OUTPUT: " + expected);
+        System.out.println("Test #" + _testCounter + " -> " + FAIL_COLOR + "FAILED" + RESET_COLOR + " OUTPUT: " + expected);
         return false;
     }
 
@@ -41,11 +35,11 @@ public class Test
         _testCounter++;
         if (expected == actual)
         {
-            System.out.println("Test #" + _testCounter + " -> " + SUCCESS_COLOR + "SUCCEEDED" + MAIN_COLOR);
+            System.out.println("Test #" + _testCounter + " -> " + SUCCESS_COLOR + "SUCCEEDED" + RESET_COLOR);
             return true;
         }
 
-        System.out.println("Test #" + _testCounter + " -> " + FAIL_COLOR + "FAILED" + MAIN_COLOR + " OUTPUT: " + expected);
+        System.out.println("Test #" + _testCounter + " -> " + FAIL_COLOR + "FAILED" + RESET_COLOR + " OUTPUT: " + expected);
         return false;
     }
 
@@ -54,11 +48,11 @@ public class Test
         _testCounter++;
         if (expected == actual)
         {
-            System.out.println("Test #" + _testCounter + " -> " + SUCCESS_COLOR + "SUCCEEDED" + MAIN_COLOR);
+            System.out.println("Test #" + _testCounter + " -> " + SUCCESS_COLOR + "SUCCEEDED" + RESET_COLOR);
             return true;
         }
 
-        System.out.println("Test #" + _testCounter + " -> " + FAIL_COLOR + "FAILED" + MAIN_COLOR + " OUTPUT: " + expected);
+        System.out.println("Test #" + _testCounter + " -> " + FAIL_COLOR + "FAILED" + RESET_COLOR + " OUTPUT: " + expected);
         return false;
     }
 
@@ -67,11 +61,11 @@ public class Test
         _testCounter++;
         if (expected.equals(actual))
         {
-            System.out.println("Test #" + _testCounter + " -> " + SUCCESS_COLOR + "SUCCEEDED" + MAIN_COLOR);
+            System.out.println("Test #" + _testCounter + " -> " + SUCCESS_COLOR + "SUCCEEDED" + RESET_COLOR);
             return true;
         }
 
-        System.out.println("Test #" + _testCounter + " -> " + FAIL_COLOR + "FAILED" + MAIN_COLOR + " OUTPUT: " + expected);
+        System.out.println("Test #" + _testCounter + " -> " + FAIL_COLOR + "FAILED" + RESET_COLOR + " OUTPUT: " + expected);
         return false;
     }
 
@@ -80,11 +74,11 @@ public class Test
         _testCounter++;
         if (expected.equals(actual))
         {
-            System.out.println("Test #" + _testCounter + " -> " + SUCCESS_COLOR + "SUCCEEDED" + MAIN_COLOR);
+            System.out.println("Test #" + _testCounter + " -> " + SUCCESS_COLOR + "SUCCEEDED" + RESET_COLOR);
             return true;
         }
 
-        System.out.println("Test #" + _testCounter + " -> " + FAIL_COLOR + "FAILED" + MAIN_COLOR + " OUTPUT: " + expected);
+        System.out.println("Test #" + _testCounter + " -> " + FAIL_COLOR + "FAILED" + RESET_COLOR + " OUTPUT: " + expected);
         return false;
     }
 
@@ -93,11 +87,11 @@ public class Test
         _testCounter++;
         if (Arrays.equals(expected, actual))
         {
-            System.out.println("Test #" + _testCounter + " -> " + SUCCESS_COLOR + "SUCCEEDED" + MAIN_COLOR);
+            System.out.println("Test #" + _testCounter + " -> " + SUCCESS_COLOR + "SUCCEEDED" + RESET_COLOR);
             return true;
         }
 
-        System.out.println("Test #" + _testCounter + " -> " + FAIL_COLOR + "FAILED" + MAIN_COLOR + " OUTPUT: " + Arrays.toString(expected));
+        System.out.println("Test #" + _testCounter + " -> " + FAIL_COLOR + "FAILED" + RESET_COLOR + " OUTPUT: " + Arrays.toString(expected));
         return false;
     }
 
@@ -106,11 +100,11 @@ public class Test
         _testCounter++;
         if (Arrays.equals(expected, actual))
         {
-            System.out.println("Test #" + _testCounter + " -> " + SUCCESS_COLOR + "SUCCEEDED" + MAIN_COLOR);
+            System.out.println("Test #" + _testCounter + " -> " + SUCCESS_COLOR + "SUCCEEDED" + RESET_COLOR);
             return true;
         }
 
-        System.out.println("Test #" + _testCounter + " -> " + FAIL_COLOR + "FAILED" + MAIN_COLOR + " OUTPUT: " + Arrays.toString(expected));
+        System.out.println("Test #" + _testCounter + " -> " + FAIL_COLOR + "FAILED" + RESET_COLOR + " OUTPUT: " + Arrays.toString(expected));
         return false;
     }
 
@@ -119,11 +113,11 @@ public class Test
         _testCounter++;
         if (Arrays.equals(expected, actual))
         {
-            System.out.println("Test #" + _testCounter + " -> " + SUCCESS_COLOR + "SUCCEEDED" + MAIN_COLOR);
+            System.out.println("Test #" + _testCounter + " -> " + SUCCESS_COLOR + "SUCCEEDED" + RESET_COLOR);
             return true;
         }
 
-        System.out.println("Test #" + _testCounter + " -> " + FAIL_COLOR + "FAILED" + MAIN_COLOR + " OUTPUT: " + Arrays.toString(expected));
+        System.out.println("Test #" + _testCounter + " -> " + FAIL_COLOR + "FAILED" + RESET_COLOR + " OUTPUT: " + Arrays.toString(expected));
         return false;
     }
 
@@ -132,11 +126,11 @@ public class Test
         _testCounter++;
         if (Arrays.equals(expected, actual))
         {
-            System.out.println("Test #" + _testCounter + " -> " + SUCCESS_COLOR + "SUCCEEDED" + MAIN_COLOR);
+            System.out.println("Test #" + _testCounter + " -> " + SUCCESS_COLOR + "SUCCEEDED" + RESET_COLOR);
             return true;
         }
 
-        System.out.println("Test #" + _testCounter + " -> " + FAIL_COLOR + "FAILED" + MAIN_COLOR + " OUTPUT: " + Arrays.toString(expected));
+        System.out.println("Test #" + _testCounter + " -> " + FAIL_COLOR + "FAILED" + RESET_COLOR + " OUTPUT: " + Arrays.toString(expected));
         return false;
     }
 
@@ -145,11 +139,11 @@ public class Test
         _testCounter++;
         if (expected.toString().equals(actual.toString()))
         {
-            System.out.println("Test #" + _testCounter + " -> " + SUCCESS_COLOR + "SUCCEEDED" + MAIN_COLOR);
+            System.out.println("Test #" + _testCounter + " -> " + SUCCESS_COLOR + "SUCCEEDED" + RESET_COLOR);
             return true;
         }
 
-        System.out.println("Test #" + _testCounter + " -> " + FAIL_COLOR + "FAILED" + MAIN_COLOR + " OUTPUT: " + expected);
+        System.out.println("Test #" + _testCounter + " -> " + FAIL_COLOR + "FAILED" + RESET_COLOR + " OUTPUT: " + expected);
         return false;
     }
 
@@ -161,5 +155,19 @@ public class Test
         _testName = "";
 
         return count;
+    }
+
+    public void finalReport()
+    {
+        System.out.println(TITLE_COLOR + "========== FINAL REPORT ==========" + RESET_COLOR);
+        System.out.println(_testCounter + " tests committed.\n");
+    }
+
+    public void finalReport(int counter, int successes)
+    {
+        System.out.println(TITLE_COLOR + "========== FINAL REPORT ==========" + RESET_COLOR);
+        System.out.println(counter + " tests committed.\n"
+                + SUCCESS_COLOR + successes + " from them passed.\n" + RESET_COLOR
+                + FAIL_COLOR + (counter - successes) + " from them failed."  + RESET_COLOR);
     }
 }
