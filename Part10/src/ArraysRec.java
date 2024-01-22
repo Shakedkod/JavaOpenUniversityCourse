@@ -195,4 +195,72 @@ public class ArraysRec
     {
         quickSort(a, 0, a.length - 1);
     }
+
+    public static int numberPaths(int x, int y)
+    {
+        if ((x == 0) && (y == 0))
+            return 0;
+
+        if ((x == 0) || (y == 0))
+            return 1;
+
+        return numberPaths(x - 1, y) + numberPaths(x, y - 1);
+    }
+
+    private static boolean sumNum(int[] a, int num, int i)
+    {
+        if (i == a.length)
+            return false;
+
+        if (a[i] == num)
+            return true;
+
+        return sumNum(a, num, i + 1) || sumNum(a, num - a[i], i + 1);
+    }
+
+    public static boolean sumNum(int[] a, int num)
+    {
+        return sumNum(a, num, 0);
+    }
+
+    public static boolean diffCharsByOne(String s1, String s2)
+    {
+        if (s1.length() != s2.length() || s1.length() == 0)
+            return false;
+
+        if (s1.charAt(0) != s2.charAt(0))
+            return (s1.substring(1).equals(s2.substring(1)));
+
+        return diffCharsByOne(s1.substring(1), s2.substring(1));
+    }
+
+    // שאלה 1 ביחידה 10.6
+    private int[] _arr;
+
+    private int equalSum(int i, int sumUntil, int sumForward)
+    {
+        if (i == _arr.length)
+            return -1;
+
+        sumUntil += _arr[i];
+        sumForward -= _arr[i];
+
+        if (sumUntil == sumForward)
+            return i;
+
+        return equalSum(i + 1, sumUntil, sumForward);
+    }
+
+    private int arraySum(int i)
+    {
+        if (_arr.length == i)
+            return 0;
+
+        return (_arr[i] + arraySum(i + 1));
+    }
+
+    public int equalSum()
+    {
+        return equalSum(0, 0, arraySum(0));
+    }
 }
