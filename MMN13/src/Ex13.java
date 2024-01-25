@@ -45,33 +45,56 @@ public class Ex13
         return Math.max(maxMultiply, maxMinusMultiply);
     }
 
+    public static int findMedian(int[] arr1, int[] arr2)
+    {
+        int indexArr1 = 0, indexArr2 = 0;
+        int totalLength = arr1.length + arr2.length;
+
+        if (totalLength % 2 == 0)
+        {
+            while ((indexArr1 + indexArr2) < (totalLength + 1) / 2)
+            {
+                if (arr1[indexArr1] > arr2[indexArr2])
+                    indexArr2++;
+                else
+                    indexArr1++;
+            }
+
+            return (arr1[indexArr1] + arr2[indexArr2]) / 2;
+        }
+
+        while ((indexArr1 + indexArr2) < totalLength / 2)
+        {
+            if (arr1[indexArr1] > arr2[indexArr2])
+                indexArr2++;
+            else
+                indexArr1++;
+        }
+
+        return Math.max(arr1[indexArr1], arr2[indexArr2]);
+    }
+
     /**
      * Q3 FUNCTION
-     * TODO
+     * This function creates a string that the two strings given are included in.
      *
-     * TIME COMPLEXITY: TODO
-     * SPACE COMPLEXITY: TODO
-     *
-     * @param st1 TODO
-     * @param st2 TODO
-     * @return TODO
+     * @param st1 the first string to be included.
+     * @param st2 the second string to be included.
+     * @return the string that the two strings given are included in.
      */
     public static String minimalSt(String st1, String st2)
     {
-        if (st1.length() == 0 && st2.length() == 0)
-            return "";
-
+        // Stopping points
         if (st1.length() == 0)
-            return st2.charAt(0) + minimalSt("", st2.substring(1));
+            return st2;
 
         if (st2.length() == 0)
-            return st1.charAt(0) + minimalSt(st1.substring(1), "");
+            return st1;
 
-        // TODO: this is also problematic
+        // Recursion
         if (st1.charAt(0) == st2.charAt(0))
             return st1.charAt(0) + minimalSt(st1.substring(1), st2.substring(1));
 
-        // TODO: it doesn't fully work, but its a good start
-        return st1.charAt(0) + st2.charAt(0) + minimalSt(st1.substring(1), st2.substring(1));
+        return st1.charAt(0) + minimalSt(st1.substring(1), st2);
     }
 }
