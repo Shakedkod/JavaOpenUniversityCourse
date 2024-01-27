@@ -45,6 +45,17 @@ public class Ex13
         return Math.max(maxMultiply, maxMinusMultiply);
     }
 
+    /**
+     * Q2 FUNCTION
+     * TODO
+     *
+     * TIME COMPLEXITY: TODO
+     * SPACE COMPLEXITY: TODO
+     *
+     * @param arr1 TODO
+     * @param arr2 TODO
+     * @return TODO
+     */
     public static int findMedian(int[] arr1, int[] arr2)
     {
         int indexArr1 = 0, indexArr2 = 0;
@@ -52,7 +63,7 @@ public class Ex13
 
         if (totalLength % 2 == 0)
         {
-            while ((indexArr1 + indexArr2) < (totalLength + 1) / 2)
+            while ((indexArr1 + indexArr2) < ((totalLength - 1) / 2))
             {
                 if (arr1[indexArr1] > arr2[indexArr2])
                     indexArr2++;
@@ -60,7 +71,15 @@ public class Ex13
                     indexArr1++;
             }
 
-            return (arr1[indexArr1] + arr2[indexArr2]) / 2;
+            int val1 = Math.min(arr1[indexArr1], arr2[indexArr2]);
+
+            int val2;
+            if (arr1[indexArr1] > arr2[indexArr2])
+                val2 = Math.min(arr1[indexArr1], arr2[indexArr2 + 1]);
+            else
+                val2 = Math.min(arr1[indexArr1 + 1], arr2[indexArr2]);
+
+            return (val1 + val2) / 2;
         }
 
         while ((indexArr1 + indexArr2) < totalLength / 2)
@@ -71,7 +90,7 @@ public class Ex13
                 indexArr1++;
         }
 
-        return Math.max(arr1[indexArr1], arr2[indexArr2]);
+        return Math.min(arr1[indexArr1], arr2[indexArr2]);
     }
 
     /**
@@ -96,5 +115,54 @@ public class Ex13
             return st1.charAt(0) + minimalSt(st1.substring(1), st2.substring(1));
 
         return st1.charAt(0) + minimalSt(st1.substring(1), st2);
+    }
+
+    private static int maxSnake(int[][] mat, int row, int colum, int beforeValue)
+    {
+        if (row == (mat.length - 1 )&& colum == (mat[0].length - 1)) // STOPPING - if the snake is on its last item.
+            return 1;
+
+        if (row > (mat.length - 1) || row < 0 || colum > (mat[0].length - 1) || colum < 0) // if the snake is out of the array
+            return Integer.MIN_VALUE;
+
+        if (mat[row][colum] == 0) // if the snake is on the tile it had been before
+            return Integer.MIN_VALUE;
+
+        if (Math.abs(mat[row][colum] - beforeValue) > 1) // the fourth rule of the snake
+            return Integer.MIN_VALUE;
+
+        int temp = mat[row][colum];
+        mat[row][colum] = 0;
+
+        int longestPath = 1 + Math.max(
+                maxSnake(mat, row + 1, colum, temp), // one up
+                Math.max(
+                        maxSnake(mat, row - 1, colum, temp), // one down
+                        Math.max(
+                                maxSnake(mat, row, colum + 1, temp), // one right
+                                maxSnake(mat, row, colum - 1, temp)  // one left
+                        )
+                )
+        );
+
+        mat[row][colum] = temp;
+        return longestPath;
+    }
+
+    /**
+     * Q4 FUNCTION
+     * this function calculates the longest "snake route" throw an array.
+     *
+     * @param mat the array in witch the "snake route" will exist.
+     * @return the length of the "snake route".
+     */
+    public static int maxSnake(int[][] mat)
+    {
+        int result = maxSnake(mat, 0, 0, mat[0][0]);
+
+        if (result == 0) // if there isn't a route
+            return Integer.MIN_VALUE;
+
+        return result;
     }
 }
