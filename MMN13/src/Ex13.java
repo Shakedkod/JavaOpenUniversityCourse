@@ -28,15 +28,81 @@ public class Ex13
         for (int i = 0; i < arr.length; i++)
         {
             if (arr[i] > arrayMax)
+            {
+                if (arrayThirdLargest < arrayMin && arrayThirdLargest != Integer.MIN_VALUE)
+                {
+                    arraySecondSmallest = arrayMin;
+                    arrayMin = arrayThirdLargest;
+                }
+                else if (arrayThirdLargest < arraySecondSmallest && arrayThirdLargest != Integer.MIN_VALUE)
+                    arraySecondSmallest = arrayThirdLargest;
+
+                arrayThirdLargest = arraySecondLargest;
+                arraySecondLargest = arrayMax;
                 arrayMax = arr[i];
+            }
             else if (arr[i] > arraySecondLargest)
+            {
+                if (arrayThirdLargest < arrayMin && arrayThirdLargest != Integer.MIN_VALUE)
+                {
+                    arraySecondSmallest = arrayMin;
+                    arrayMin = arrayThirdLargest;
+                }
+                else if (arrayThirdLargest < arraySecondSmallest && arrayThirdLargest != Integer.MIN_VALUE)
+                    arraySecondSmallest = arrayThirdLargest;
+
+                arrayThirdLargest = arraySecondLargest;
                 arraySecondLargest = arr[i];
+            }
             else if (arr[i] > arrayThirdLargest)
+            {
+                if (arrayThirdLargest < arrayMin && arrayThirdLargest != Integer.MIN_VALUE)
+                {
+                    arraySecondSmallest = arrayMin;
+                    arrayMin = arrayThirdLargest;
+                }
+                else if (arrayThirdLargest < arraySecondSmallest && arrayThirdLargest != Integer.MIN_VALUE)
+                    arraySecondSmallest = arrayThirdLargest;
+
                 arrayThirdLargest = arr[i];
+            }
             else if (arr[i] < arrayMin)
+            {
+                if (arraySecondSmallest > arrayMax && arraySecondSmallest != Integer.MAX_VALUE)
+                {
+                    arrayThirdLargest = arraySecondLargest;
+                    arraySecondLargest = arrayMax;
+                    arrayMax = arraySecondSmallest;
+                }
+                else if (arraySecondSmallest > arraySecondLargest && arraySecondSmallest != Integer.MAX_VALUE)
+                {
+                    arrayThirdLargest = arraySecondLargest;
+                    arraySecondLargest = arraySecondSmallest;
+                }
+                else if (arraySecondSmallest > arrayThirdLargest && arraySecondSmallest != Integer.MAX_VALUE)
+                    arrayThirdLargest = arraySecondSmallest;
+
+                arraySecondSmallest = arrayMin;
                 arrayMin = arr[i];
+            }
             else if (arr[i] < arraySecondSmallest)
+            {
+                if (arraySecondSmallest > arrayMax && arraySecondSmallest != Integer.MAX_VALUE)
+                {
+                    arrayThirdLargest = arraySecondLargest;
+                    arraySecondLargest = arrayMax;
+                    arrayMax = arraySecondSmallest;
+                }
+                else if (arraySecondSmallest > arraySecondLargest && arraySecondSmallest != Integer.MAX_VALUE)
+                {
+                    arrayThirdLargest = arraySecondLargest;
+                    arraySecondLargest = arraySecondSmallest;
+                }
+                else if (arraySecondSmallest > arrayThirdLargest && arraySecondSmallest != Integer.MAX_VALUE)
+                    arrayThirdLargest = arraySecondSmallest;
+
                 arraySecondSmallest = arr[i];
+            }
         }
 
         int maxMultiply = arrayMax * arraySecondLargest * arrayThirdLargest;
@@ -47,14 +113,14 @@ public class Ex13
 
     /**
      * Q2 FUNCTION
-     * TODO
+     * this function finds the median of the combination of 2 arrays given.
      *
-     * TIME COMPLEXITY: TODO
-     * SPACE COMPLEXITY: TODO
+     * TIME COMPLEXITY: O(n) - the function will run one loop that isn't nested.
+     * SPACE COMPLEXITY: O(1) - all the var defined in the function are not dependent on the length of the arrays.
      *
-     * @param arr1 TODO
-     * @param arr2 TODO
-     * @return TODO
+     * @param arr1 the first array
+     * @param arr2 the second array
+     * @return the median.
      */
     public static int findMedian(int[] arr1, int[] arr2)
     {
@@ -94,7 +160,7 @@ public class Ex13
     }
 
     /**
-     * Q3 FUNCTION
+     * Q3 FUNCTION TODO: FIX
      * This function creates a string that the two strings given are included in.
      *
      * @param st1 the first string to be included.

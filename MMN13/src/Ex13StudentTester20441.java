@@ -32,14 +32,14 @@ public class Ex13StudentTester20441
         System.out.println("----------------------------------------");
         System.out.println("***         Q3  - minimalSt          ***");
         System.out.println("----------------------------------------");
-        System.out.println("Testing : st1=\"B\" st2=\"A\"");
-        String st1 = "B";
-        String st2 = "A";
+        System.out.println("Testing : st1=\"AGGTAB\" st2=\"GXTXAYB\"");
+        String st1 = "AGGTAB";
+        String st2 = "GXTXAYB";
         String result3=Ex13.minimalSt(st1, st2);
-        if (result3.equals("AB") || result3.equals("BA"))
+        if (result3.equals("AGGXTXAYB") || result3.equals("AGXGTXAYB"))
             System.out.println("Passed, result is " + result3);
         else
-            System.out.println("Failed,  expected: \"AB\" or \"BA\"   student's result: "+result3);
+            System.out.println("Failed,  expected: \"AGGXTXAYB\" or \"AGXGTXAYB\"   student's result: "+result3);
         System.out.println("Testing : st1=\"AA\" st2=\"A\"");
         st1 = "AA";
         st2 = "A";
