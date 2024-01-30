@@ -202,8 +202,8 @@ public class Date
             }
             else
             {
-                result.setYear(_year + num);
                 result.setDay(LAST_DAY_IN_FEBRUARY_NORM);
+                result.setYear(_year + num);
             }
 
         }
