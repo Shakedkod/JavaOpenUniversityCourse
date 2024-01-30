@@ -185,4 +185,53 @@ public class IntList
 
         return null;
     }
+
+    // MERGE SORT //
+    private IntNode merge(IntNode list1, IntNode list2)
+    {
+        if (list1 == null) return list2;
+        if (list2 == null) return list1;
+
+        if (list1.getValue() < list2.getValue())
+        {
+            list1.setNext(merge(list1.getNext(), list2));
+            return list1;
+        }
+        else
+        {
+            list2.setNext(merge(list1, list2.getNext()));
+            return list2;
+        }
+    }
+
+    private IntNode split(IntNode node)
+    {
+        if (node == null || node.getNext() == null)
+            return null;
+
+        IntNode list2 = node.getNext();
+        node.setNext(list2.getNext());
+        list2.setNext(split(list2.getNext()));
+        return list2;
+    }
+
+    private IntNode mergeSort(IntNode node)
+    {
+        if (node == null || node.getNext() == null)
+            return node;
+
+        IntNode list2 = split(node);
+
+        node = mergeSort(node);
+        list2 = mergeSort(list2);
+
+        return merge(node, list2);
+    }
+
+    // TIME COMPLEXITY: O(n*log(n))
+    // SPACE COMPLEXITY: O(1) - without addressing recession.
+    public void mergeSort()
+    {
+        _head = mergeSort(_head);
+    }
 }
