@@ -36,10 +36,10 @@ public class Tester
         successes += tester.check(d2.difference(d3), 163) ? 1 : 0;
 
         System.out.println("\n7. Testing addYearsToDate method:");
-        Date d5 = new Date(14, 2, 2021);
-        int num = 3;
+        Date d5 = new Date(29, 2, 2196);
+        int num = 4;
         Date d6 = d5.addYearsToDate(num);
-        successes += tester.check(d6.toString(), "14/02/2024") ? 1 : 0;
+        successes += tester.check(d6.toString(), "28/02/2200") ? 1 : 0;
         System.out.println("\nthe date "+num+" years after "+ d5 +" is : "+d6);
 
         // advanced tests
@@ -163,14 +163,14 @@ public class Tester
         a1.setNoOfRooms(5);
         a1.setArea(110);
         a1.setPrice(9900);
-        a1.setRentalStartDate(new Date(1, 8, 2023));
-        a1.setRentalEndDate(new Date(1, 8, 2025));
+        a1.setRentalStartDate(new Date(28, 2, 2023));
+        a1.setRentalEndDate(new Date(29, 2, 2024));
         successes += tester.check(a1.toString(), "Number of rooms: 5\n" +
                 "Area: 110.0\n" +
                 "Price: 9900.0 NIS\n" +
                 "Tenant name: David Levi\n" +
-                "Rental start date: 01/08/2023\n" +
-                "Rental end date: 01/08/2025"
+                "Rental start date: 28/02/2023\n" +
+                "Rental end date: 29/02/2024"
         ) ? 1 : 0;
 
         System.out.println("\n3. Testing equals method:");
@@ -179,7 +179,7 @@ public class Tester
         successes += tester.check(a3.equals(a4), true) ? 1 : 0;
 
         System.out.println("\n4. Testing extendRentalPeriod method:");
-        a1.extendRentalPeriod(1);
+        a1.extendRentalPeriod(2);
         successes += tester.check(a1.getRentalEndDate().getYear(), 2026) ? 1 : 0;
 
         System.out.println("\n5. Testing daysLeft method:");

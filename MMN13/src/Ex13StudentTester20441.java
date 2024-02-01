@@ -2,7 +2,6 @@
 public class Ex13StudentTester20441
 {
     public static void main(String[] args) {
-
         System.out.println("----------------------------------------");
         System.out.println("***         Q1  - maxMult3           ***");
         System.out.println("----------------------------------------");
