@@ -29,78 +29,27 @@ public class Ex13
         {
             if (arr[i] > arrayMax)
             {
-                if (arrayThirdLargest < arrayMin && arrayThirdLargest != Integer.MIN_VALUE)
-                {
-                    arraySecondSmallest = arrayMin;
-                    arrayMin = arrayThirdLargest;
-                }
-                else if (arrayThirdLargest < arraySecondSmallest && arrayThirdLargest != Integer.MIN_VALUE)
-                    arraySecondSmallest = arrayThirdLargest;
-
                 arrayThirdLargest = arraySecondLargest;
                 arraySecondLargest = arrayMax;
                 arrayMax = arr[i];
             }
             else if (arr[i] > arraySecondLargest)
             {
-                if (arrayThirdLargest < arrayMin && arrayThirdLargest != Integer.MIN_VALUE)
-                {
-                    arraySecondSmallest = arrayMin;
-                    arrayMin = arrayThirdLargest;
-                }
-                else if (arrayThirdLargest < arraySecondSmallest && arrayThirdLargest != Integer.MIN_VALUE)
-                    arraySecondSmallest = arrayThirdLargest;
-
                 arrayThirdLargest = arraySecondLargest;
                 arraySecondLargest = arr[i];
             }
             else if (arr[i] > arrayThirdLargest)
             {
-                if (arrayThirdLargest < arrayMin && arrayThirdLargest != Integer.MIN_VALUE)
-                {
-                    arraySecondSmallest = arrayMin;
-                    arrayMin = arrayThirdLargest;
-                }
-                else if (arrayThirdLargest < arraySecondSmallest && arrayThirdLargest != Integer.MIN_VALUE)
-                    arraySecondSmallest = arrayThirdLargest;
-
                 arrayThirdLargest = arr[i];
             }
-            else if (arr[i] < arrayMin)
-            {
-                if (arraySecondSmallest > arrayMax && arraySecondSmallest != Integer.MAX_VALUE)
-                {
-                    arrayThirdLargest = arraySecondLargest;
-                    arraySecondLargest = arrayMax;
-                    arrayMax = arraySecondSmallest;
-                }
-                else if (arraySecondSmallest > arraySecondLargest && arraySecondSmallest != Integer.MAX_VALUE)
-                {
-                    arrayThirdLargest = arraySecondLargest;
-                    arraySecondLargest = arraySecondSmallest;
-                }
-                else if (arraySecondSmallest > arrayThirdLargest && arraySecondSmallest != Integer.MAX_VALUE)
-                    arrayThirdLargest = arraySecondSmallest;
 
+            if (arr[i] < arrayMin)
+            {
                 arraySecondSmallest = arrayMin;
                 arrayMin = arr[i];
             }
             else if (arr[i] < arraySecondSmallest)
             {
-                if (arraySecondSmallest > arrayMax && arraySecondSmallest != Integer.MAX_VALUE)
-                {
-                    arrayThirdLargest = arraySecondLargest;
-                    arraySecondLargest = arrayMax;
-                    arrayMax = arraySecondSmallest;
-                }
-                else if (arraySecondSmallest > arraySecondLargest && arraySecondSmallest != Integer.MAX_VALUE)
-                {
-                    arrayThirdLargest = arraySecondLargest;
-                    arraySecondLargest = arraySecondSmallest;
-                }
-                else if (arraySecondSmallest > arrayThirdLargest && arraySecondSmallest != Integer.MAX_VALUE)
-                    arrayThirdLargest = arraySecondSmallest;
-
                 arraySecondSmallest = arr[i];
             }
         }
@@ -180,7 +129,10 @@ public class Ex13
         if (st1.charAt(0) == st2.charAt(0))
             return st1.charAt(0) + minimalSt(st1.substring(1), st2.substring(1));
 
-        return st1.charAt(0) + minimalSt(st1.substring(1), st2);
+        String st3 = st1.charAt(0) + minimalSt(st1.substring(1), st2);
+        String st4 = st2.charAt(0) + minimalSt(st1, st2.substring(1));
+
+        return st3.length() > st4.length() ? st4 : st3;
     }
 
     private static int maxSnake(int[][] mat, int row, int colum, int beforeValue)
