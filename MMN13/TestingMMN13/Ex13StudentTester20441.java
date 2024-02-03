@@ -20,7 +20,7 @@ public class Ex13StudentTester20441
             int []arr1 = {1,12,15,26,38};
             int []arr2 = {12,13,18,30,45};
             System.out.println("arr1: [1,12,15,26,38]");
-            System.out.println("arr2: [12,13,18,30,45]");
+            System.out.println("arr1: [12,13,18,30,45]");
             int result2=Ex13.findMedian(arr1,arr2);
             if (result2==16)
                 System.out.println("Passed, result is 16");

@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=Ex13
+comment0.text=\r\n\ This\ class\ contains\ the\ methods\ of\ the\ Java\ course\ MMN13.\r\n\r\n\ ID\:\ 216590125\r\n\ @author\ Shaked\ Kodman\ Kolran\r\n\ @version\ 25-1-24\r\n
+comment1.params=arr
+comment1.target=int\ maxMult3(int[])
+comment1.text=\r\n\ Q1\ FUNCTION\r\n\ This\ functions\ calculates\ the\ largest\ multiplication\ in\ the\ array.\r\n\r\n\ TIME\ COMPLEXITY\:\ O(n)\ -\ the\ function\ has\ one\ loop\ that\ goes\ over\ the\ whole\ array.\r\n\ SPACE\ COMPLEXITY\:\ O(1)\ -\ all\ the\ variables\ that\ the\ function\ creates\ are\ primitive\ types(int)\ and\ not\ influenced\ by\ the\ array\ size(n).\r\n\r\n\ @param\ arr\ the\ array\ that\ the\ numbers\ for\ the\ multiplication\ will\ be\ taken\ from\r\n\ @return\ the\ result\ of\ the\ multiplication\r\n
+comment2.params=arr1\ arr2
+comment2.target=int\ findMedian(int[],\ int[])
+comment2.text=\r\n\ Q2\ FUNCTION\r\n\ this\ function\ finds\ the\ median\ of\ the\ combination\ of\ 2\ arrays\ given.\r\n\r\n\ TIME\ COMPLEXITY\:\ O(n)\ -\ the\ function\ will\ run\ one\ loop\ that\ goes\ throw\ the\ length\ of\ the\ two\ arrays\ divided\ by\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 2,\ with\ means,\ the\ length\ of\ 1\ array\ or\ n.\r\n\ SPACE\ COMPLEXITY\:\ O(1)\ -\ all\ the\ var\ defined\ in\ the\ function\ are\ not\ dependent\ on\ the\ length\ of\ the\ arrays.\r\n\r\n\ @param\ arr1\ the\ first\ array\r\n\ @param\ arr2\ the\ second\ array\r\n\ @return\ the\ median.\r\n
+comment3.params=st1\ st2
+comment3.target=java.lang.String\ minimalSt(java.lang.String,\ java.lang.String)
+comment3.text=\r\n\ Q3\ FUNCTION\r\n\ This\ function\ creates\ a\ string\ that\ the\ two\ strings\ given\ are\ included\ in.\r\n\r\n\ @param\ st1\ the\ first\ string\ to\ be\ included.\r\n\ @param\ st2\ the\ second\ string\ to\ be\ included.\r\n\ @return\ the\ string\ that\ the\ two\ strings\ given\ are\ included\ in.\r\n
+comment4.params=mat\ row\ colum\ beforeValue
+comment4.target=int\ maxSnake(int[][],\ int,\ int,\ int)
+comment5.params=mat
+comment5.target=int\ maxSnake(int[][])
+comment5.text=\r\n\ Q4\ FUNCTION\r\n\ this\ function\ calculates\ the\ longest\ "snake\ route"\ throw\ an\ array.\r\n\r\n\ @param\ mat\ the\ array\ in\ witch\ the\ "snake\ route"\ will\ exist.\r\n\ @return\ the\ length\ of\ the\ "snake\ route".\r\n
+numComments=6
