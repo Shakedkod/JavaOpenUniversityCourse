@@ -64,8 +64,7 @@ public class Ex13
      * Q2 FUNCTION
      * this function finds the median of the combination of 2 arrays given.
      *
-     * TIME COMPLEXITY: O(n) - the function will run one loop that goes throw the length of the two arrays divided by
-     *                          2, with means, the length of 1 array or n.
+     * TIME COMPLEXITY: O(log n) - the function does a binary search on the arrays given.
      * SPACE COMPLEXITY: O(1) - all the var defined in the function are not dependent on the length of the arrays.
      *
      * @param arr1 the first array

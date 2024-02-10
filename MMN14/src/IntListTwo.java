@@ -104,10 +104,12 @@ public class IntListTwo
     {
         if (node == _tail)
             return true;
-        if (node == null)
+        if (node == null || node.getNum() == 0) // if the node is null or visited
             return false;
 
-        return isWay(getNextNode(node, node.getNum())) || isWay(getPrevNode(node, node.getNum()));
+        int temp = node.getNum();
+        node.setNum(0); // marking the node as visited
+        return isWay(getNextNode(node, temp)) || isWay(getPrevNode(node, temp));
     }
 
     /**
