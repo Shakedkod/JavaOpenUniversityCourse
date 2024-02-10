@@ -59,6 +59,9 @@ public class IntList
         if (_head == null)
             return false;
 
+        if (_head.getNext() == null)
+            return (_head.getValue() == num);
+
         IntNode start = _head;
         IntNode end = _head.getNext();
         int sum = start.getValue() + end.getValue();
@@ -74,6 +77,9 @@ public class IntList
             }
             else
             {
+                if (end.getNext() == null)
+                    return false;
+
                 end = end.getNext();
                 sum += end.getValue();
             }
@@ -114,24 +120,25 @@ public class IntList
         IntNode largestAvgDifferenceNode = _head;
         temp = _head.getNext();
         int largestAvgDifferenceValue = Math.abs((sumUntil / NumOfValuesUntil) - (sumForwards / NumOfValuesForwards));
+        temp = temp.getNext();
 
         // the getNext() is because the last node can't be a variable divisor according to the question rules
         while (temp.getNext() != null)
         {
-            // move to the next
-            temp = temp.getNext();
-
             // change the values
             sumUntil += temp.getValue();
             sumForwards -= temp.getValue();
 
             // check
             int tempAvgDifferenceValue = Math.abs((sumUntil / NumOfValuesUntil) - (sumForwards / NumOfValuesForwards));
-            if (tempAvgDifferenceValue > largestAvgDifferenceValue)
+            if (tempAvgDifferenceValue >= largestAvgDifferenceValue)
             {
                 largestAvgDifferenceNode = temp;
                 largestAvgDifferenceValue = tempAvgDifferenceValue;
             }
+
+            // move to the next
+            temp = temp.getNext();
         }
 
         return largestAvgDifferenceNode;

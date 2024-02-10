@@ -72,7 +72,7 @@ public class Test
     public boolean check(Object expected, Object actual)
     {
         _testCounter++;
-        if (expected.equals(actual))
+        if (expected == actual)
         {
             System.out.println("Test #" + _testCounter + " -> " + SUCCESS_COLOR + "SUCCEEDED" + RESET_COLOR);
             return true;

@@ -29,10 +29,12 @@ public class IntListTwo
             _head = new IntNodeTwo(num);
             _tail = _head;
         }
-
-        IntNodeTwo temp = _tail;
-        _tail = new IntNodeTwo(num, null, temp);
-        temp.setNext(_tail);
+        else
+        {
+            IntNodeTwo temp = _tail;
+            _tail = new IntNodeTwo(num, null, temp);
+            temp.setNext(_tail);
+        }
     }
 
     /**
