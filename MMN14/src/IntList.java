@@ -118,9 +118,8 @@ public class IntList
 
         // initial values
         IntNode largestAvgDifferenceNode = _head;
-        temp = _head.getNext();
+        temp = _head.getNext().getNext();
         int largestAvgDifferenceValue = Math.abs((sumUntil / NumOfValuesUntil) - (sumForwards / NumOfValuesForwards));
-        temp = temp.getNext();
 
         // the getNext() is because the last node can't be a variable divisor according to the question rules
         while (temp.getNext() != null)
