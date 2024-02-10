@@ -92,7 +92,7 @@ public class IntList
      * FUNCTION Q2
      * This function returns the average node, witch is the node that divides the list with the condition that the average
      * difference between all the nodes that are before this node, including him, and all the nodes that are after this one,
-     * is the larges.
+     * is the largest.
      *
      * TIME COMPLEXITY: O(n) - you have to go throw the whole list at least once to sum up all the values.
      * SPACE COMPLEXITY: O(1) - the function does not create any variables that are affected by the length of the list.
@@ -118,18 +118,20 @@ public class IntList
 
         // initial values
         IntNode largestAvgDifferenceNode = _head;
-        temp = _head.getNext().getNext();
-        int largestAvgDifferenceValue = Math.abs((sumUntil / NumOfValuesUntil) - (sumForwards / NumOfValuesForwards));
+        temp = _head.getNext();
+        double largestAvgDifferenceValue = Math.abs(((double)sumUntil / NumOfValuesUntil) - ((double)sumForwards / NumOfValuesForwards));
 
         // the getNext() is because the last node can't be a variable divisor according to the question rules
         while (temp.getNext() != null)
         {
             // change the values
             sumUntil += temp.getValue();
+            NumOfValuesUntil++;
             sumForwards -= temp.getValue();
+            NumOfValuesForwards--;
 
             // check
-            int tempAvgDifferenceValue = Math.abs((sumUntil / NumOfValuesUntil) - (sumForwards / NumOfValuesForwards));
+            double tempAvgDifferenceValue = Math.abs(((double)sumUntil / NumOfValuesUntil) - ((double)sumForwards / NumOfValuesForwards));
             if (tempAvgDifferenceValue >= largestAvgDifferenceValue)
             {
                 largestAvgDifferenceNode = temp;

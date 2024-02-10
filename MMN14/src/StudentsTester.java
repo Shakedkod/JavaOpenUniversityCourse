@@ -83,7 +83,8 @@ public class StudentsTester
         l12.addToEnd(4);
         l12.addToEnd(-2);
         l12.addToEnd(1);
-        tester.check(l12.averageNode().getValue(), -8);
+        result = l12.averageNode();
+        tester.check(result.getValue(), 9);
 
         /////////////////////////////////
         tester.endTest();

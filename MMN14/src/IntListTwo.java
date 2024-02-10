@@ -118,7 +118,7 @@ public class IntListTwo
      * FUNCTION Q4
      * TODO
      *
-     * @return true if there is a way throw the list, false if there isn't
+     * @return true if there is a way threw the list, false if there isn't
      */
     public boolean isWay()
     {
