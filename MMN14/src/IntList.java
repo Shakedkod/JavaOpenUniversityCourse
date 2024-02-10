@@ -1,5 +1,5 @@
 /**
- * This class represents a list made with int objects.
+ * This class represents a one-way int list.
  *
  * ID: 216590125
  * @author Shaked Kodman Kolran

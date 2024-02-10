@@ -1,4 +1,12 @@
-public class IntListTwo {
+/**
+ * This class represents a two-way int list.
+ *
+ * ID: 216590125
+ * @author Shaked Kodman Kolran
+ * @version 10-02-24
+ */
+public class IntListTwo
+{
     IntNodeTwo _head, _tail;
 
     public IntListTwo() {
@@ -72,5 +80,49 @@ public class IntListTwo {
         return "{" + toStringReverse(_tail) + "}";
     }
 
-    
+    private IntNodeTwo getNextNode(IntNodeTwo current, int distance)
+    {
+        if (current == null)
+            return null;
+        if (distance == 0)
+            return current;
+
+        return getNextNode(current.getNext(), distance - 1);
+    }
+
+    private IntNodeTwo getPrevNode(IntNodeTwo current, int distance)
+    {
+        if (current == null)
+            return null;
+        if (distance == 0)
+            return current;
+
+        return getPrevNode(current.getPrev(), distance - 1);
+    }
+
+    private boolean isWay(IntNodeTwo node)
+    {
+        if (node == _tail)
+            return true;
+        if (node == null)
+            return false;
+
+        return isWay(getNextNode(node, node.getNum())) || isWay(getPrevNode(node, node.getNum()));
+    }
+
+    /**
+     * FUNCTION Q4
+     * TODO
+     *
+     * @return true if there is a way throw the list, false if there isn't
+     */
+    public boolean isWay()
+    {
+        if (_head == null)
+            return false;
+        if (_head.getNext() == null) // because the start of the list is the end of the list, there is a way with the _head only
+            return true;
+
+        return isWay(_head);
+    }
 }
