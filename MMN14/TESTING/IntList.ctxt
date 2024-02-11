@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=IntList
+comment0.text=\r\n\ This\ class\ represents\ a\ one-way\ int\ list.\r\n\r\n\ ID\:\ 216590125\r\n\ @author\ Shaked\ Kodman\ Kolran\r\n\ @version\ 01-02-24\r\n
+comment1.params=
+comment1.target=IntList()
+comment2.params=num
+comment2.target=void\ addToEnd(int)
+comment3.params=
+comment3.target=java.lang.String\ toString()
+comment4.params=num
+comment4.target=boolean\ subListSum(int)
+comment4.text=\r\n\ FUNCTION\ Q1\r\n\ This\ function\ searches\ for\ a\ connected\ sub\ list\ that\r\n\ \ \ \ \ \ the\ sum\ of\ her\ items\ is\ equal\ to\ the\ number\ given.\r\n\r\n\ TIME\ COMPLEXITY\:\ O(n)\ -\ we\ need\ to\ go\ throw\ the\ whole\ list\ once\ to\ see\ all\ the\ sublists.\r\n\ SPACE\ COMPLEXITY\:\ O(1)\ -\ the\ function\ does\ not\ create\ any\ variables\ that\ are\ affected\ by\ the\ length\ of\ the\ list.\r\n\r\n\ @param\ num\ the\ number\ to\ find\r\n\ @return\ true\ if\ found,\ false\ if\ not\r\n
+comment5.params=
+comment5.target=IntNode\ averageNode()
+comment5.text=\r\n\ FUNCTION\ Q2\r\n\ This\ function\ returns\ the\ average\ node,\ witch\ is\ the\ node\ that\ divides\ the\ list\ with\ the\ condition\ that\ the\ average\r\n\ difference\ between\ all\ the\ nodes\ that\ are\ before\ this\ node,\ including\ him,\ and\ all\ the\ nodes\ that\ are\ after\ this\ one,\r\n\ is\ the\ largest.\r\n\r\n\ TIME\ COMPLEXITY\:\ O(n)\ -\ you\ have\ to\ go\ throw\ the\ whole\ list\ at\ least\ once\ to\ sum\ up\ all\ the\ values.\r\n\ SPACE\ COMPLEXITY\:\ O(1)\ -\ the\ function\ does\ not\ create\ any\ variables\ that\ are\ affected\ by\ the\ length\ of\ the\ list.\r\n\r\n\ @return\ the\ IntNode\ witch\ divides\ the\ list\ according\ to\ the\ rules\ above.\r\n
+numComments=6
