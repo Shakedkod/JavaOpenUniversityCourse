@@ -116,7 +116,8 @@ public class IntListTwo
 
     /**
      * FUNCTION Q4
-     * TODO
+     * this function check if there is a way throw the list.
+     * a way starts at _head, ends at _tail and moves left or right based on the value that's in the current node.
      *
      * @return true if there is a way threw the list, false if there isn't
      */
